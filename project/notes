@@ -1,0 +1,12 @@
+main_url -- app---view,py----view()
+
+main_url -- include()--app---url---view,py----view()
+
+
+url mapping():
+----------------------------------
+path('route' ,view(),name='unique name)
+<a href=................................>
+--------------------------------------------------------
+model form:
+a form specifically built for model

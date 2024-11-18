@@ -1,0 +1,21 @@
+{% extends 'navheader.html' %}
+{% block nav %}
+          
+         
+       <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="w-75 border shadow bg-light p-3">
+            <h3> Edit Task Details</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                
+
+                <table class="table">
+                    {{form.as_table}}
+                </table>
+
+                <button class="btn btn-success">Update</button>
+            </form>
+        </div>
+       </div>
+       {% endblock nav %}
+    

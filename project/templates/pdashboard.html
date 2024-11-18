@@ -1,0 +1,63 @@
+{% extends 'pnavheader.html' %}
+{% block header %}
+
+{% if messages %}
+{% for i in messages %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>{{i}}</strong>
+</div>
+{% endif %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>{{i}}</strong>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+
+<a href="{% url 'padd' %}" class="btn btn-success ms-2 mt-2">Add Project +</a>
+
+          <table class="table table-dark table-borderd w-100 mt-3 ">
+            <thead>
+               
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Language</th>
+                    <th>Image</th>
+                    <th></th>
+                </tr>
+                
+            </thead>
+            <tbody>
+
+            {% for i in projects %}
+            <tr>
+              <td>{{i.id}}</td>
+              <td>{{i.title}}</td>
+              <td>{{i.description}}</td>
+              <td>{{i.language}}</td>
+              <td>
+               <img src="{{i.image.url}}" height="200px" alt="image">
+              </td>
+            
+            <td>
+              <a href="{% url 'pedit' i.id %}" class="btn">
+                <i class="fa-solid fa-pen-to-square" style="color: #FFD43B;"></i>
+              </button>
+              <a href="{% url 'pdel' i.id %}" class="btn ms-2">
+                <i class="fa-solid fa-trash" style="color: #FFD43B;"></i>
+              </button>
+            </td>
+            
+            
+            </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+{% endblock header %}
